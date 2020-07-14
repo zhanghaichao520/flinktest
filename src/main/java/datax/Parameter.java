@@ -2,6 +2,8 @@
   * Copyright 2020 bejson.com 
   */
 package datax;
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.List;
 
 /**
@@ -18,7 +20,8 @@ public class Parameter {
     private List<Column> column;
     private String impalaTableName;
     private boolean isUpsert;
-    private int batch-size;
+    @JSONField(name = "batch-size")
+    private int batchSize;
     private int mutationBufferSpace;
     private boolean isSyncBlob;
     private boolean initTable;
@@ -65,12 +68,41 @@ public class Parameter {
          return isUpsert;
      }
 
-    public void setBatch-size(int batch-size) {
-         this.batch-size = batch-size;
-     }
-     public int getBatch-size() {
-         return batch-size;
-     }
+    public boolean isAddTimes() {
+        return isAddTimes;
+    }
+
+    public void setAddTimes(boolean addTimes) {
+        isAddTimes = addTimes;
+    }
+
+    public boolean isUpsert() {
+        return isUpsert;
+    }
+
+    public void setUpsert(boolean upsert) {
+        isUpsert = upsert;
+    }
+
+    public int getBatchSize() {
+        return batchSize;
+    }
+
+    public void setBatchSize(int batchSize) {
+        this.batchSize = batchSize;
+    }
+
+    public boolean isSyncBlob() {
+        return isSyncBlob;
+    }
+
+    public void setSyncBlob(boolean syncBlob) {
+        isSyncBlob = syncBlob;
+    }
+
+    public boolean isInitTable() {
+        return initTable;
+    }
 
     public void setMutationBufferSpace(int mutationBufferSpace) {
          this.mutationBufferSpace = mutationBufferSpace;
